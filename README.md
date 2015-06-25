@@ -4,7 +4,9 @@
 * boot to live cd, then install
 * user/pass vagrant
 * enable remote login
-
+* shut down
+* remove ISO mount
+* export as OVF
 
 # To automate
 

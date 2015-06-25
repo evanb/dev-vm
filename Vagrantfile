@@ -48,6 +48,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
 
+  config.vm.provision "file", source: "~/.ssh/id_rsa", destination: "~/.ssh/id_rsa"
+
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "ansible/playbook.yml"
   end

@@ -1,9 +1,27 @@
 ---
 - hosts: all
+  roles:
+    - sublime
   tasks:
     - name: install required packages
       apt: name={{ item }} state=latest
       with_items:
         - git
-        - vim
+        - tree
       sudo: true
+
+    # VIM
+    - name: VIM
+      apt: pkg=vim state=present
+
+    - name: create .vim contents
+      file: path={{ item }} group=vagrant owner=vagrant state=directory
+      with_items:
+      - /home/vagrant/.vim/autoload
+      - /home/vagrant/.vim/bundle
+
+    - name: download pathogen
+      command: curl -Sso /home/vagrant/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim creates=/home/vagrant/.vim/autoload/pathogen.vim
+
+    - name: clone NERDTree
+      git: repo=https://github.com/scrooloose/nerdtree.git dest=/home/vagrant/.vim/bundle/nerdtree update=yes

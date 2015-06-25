@@ -1,0 +1,36 @@
+{
+  "builders": [
+    {
+      "name": "ubuntu-desktop-14.04.amd64.virtualbox",
+      "type": "virtualbox-ovf",
+      "source_path": "ovf/ubuntu-desktop-14.04.ovf",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "headless": false,
+      "boot_wait": "5s",
+      "ssh_wait_timeout": "30s",
+      "shutdown_command": "echo 'vagrant' | sudo -S -E shutdown -P now"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | sudo -S -E sh {{.Path}}",
+      "scripts": [
+        "script/update.sh",
+        "script/network.sh",
+        "script/vagrant.sh",
+        "script/virtualbox.sh",
+        "script/motd.sh",
+        "script/cleanup.sh"
+      ]
+    }
+  ],
+
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "output": "build/{{.BuildName}}.box"
+    }
+  ]
+}

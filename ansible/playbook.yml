@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: install required packages
+      apt: name={{ item }} state=latest
+      with_items:
+        - git
+        - vim
+      sudo: true

@@ -1,0 +1,7 @@
+packer_cache
+.vagrant
+**/*.iso
+**/*.ovf
+**/*.vmdk
+**/*.swp
+**/*.box

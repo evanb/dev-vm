@@ -22,8 +22,13 @@
         "script/vagrant.sh",
         "script/virtualbox.sh",
         "script/motd.sh",
-        "script/cleanup.sh"
+        "script/cleanup.sh",
+        "script/ansible.sh"
       ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "ansible/playbook.yml"
     }
   ],
 

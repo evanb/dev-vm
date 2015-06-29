@@ -40,6 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "~/projects", "/home/vagrant/projects"
+  config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles"
   
   config.vm.provider "virtualbox" do |vb|
    vb.gui = true

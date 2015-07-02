@@ -3,6 +3,8 @@
 
   roles:
     - chruby
+    - ruby-install
+    - atom
 
   tasks:
 
@@ -28,4 +30,7 @@
       git: repo=https://github.com/scrooloose/nerdtree.git dest=/home/vagrant/.vim/bundle/nerdtree update=yes
 
     # Dot files
-    - file: path=/home/vagrant/.gitconfig src=/home/vagrant/dotfiles/.gitconfig state=link force=yes
+    - file: path=/home/vagrant/{{ item }} src=/home/vagrant/dotfiles/{{ item }} state=link force=yes
+      with_items:
+      - .gitconfig
+      - .vimrc

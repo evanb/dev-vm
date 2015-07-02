@@ -5,3 +5,4 @@ packer_cache
 **/*.vmdk
 **/*.swp
 **/*.box
+**/.DS_Store

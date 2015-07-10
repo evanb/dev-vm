@@ -13,4 +13,4 @@ I couldn't easily get packer to build a VM from the ubuntu desktop ISO, so I've 
 * enable remote login
 * shut down
 * remove ISO mount
-* export as OVF
+* export as OVF to ovf/ubuntu-desktop-14.04.ovf

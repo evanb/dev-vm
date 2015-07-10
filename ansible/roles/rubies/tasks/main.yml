@@ -1,0 +1,14 @@
+---
+- name: Make the /opt/rubies directory
+  file: path=/opt/rubies state=directory
+  sudo: true
+
+- name: Check for ruby version
+  shell: ls -1 /opt/rubies | grep {{ ruby_version }}
+  ignore_errors: true
+  register: ruby_installed
+
+- name: install ruby version
+  shell: ruby-install ruby {{ ruby_version }}
+  sudo: true
+  when: ruby_installed|failed

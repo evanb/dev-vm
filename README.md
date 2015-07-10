@@ -7,9 +7,3 @@
 * shut down
 * remove ISO mount
 * export as OVF
-
-# To automate
-
-vagrant@dev-vm:~/projects/dev-vm$ git config --global user.email "evan@bottch.com"
-vagrant@dev-vm:~/projects/dev-vm$ git config --global user.name "Evan Bottcher"
-config.vm.provision "file", source: "~/.gitconfig", destination: ".gitconfig"

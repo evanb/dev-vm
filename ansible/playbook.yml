@@ -4,7 +4,7 @@
   roles:
     - chruby
     - ruby-install
-    - atom
+    - { role: atom, atom_tmp_deb: /home/vagrant/atom.deb }
     - { role: rubies, ruby_version: 2.1.3 }
 
   tasks:

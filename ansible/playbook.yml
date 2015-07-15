@@ -35,3 +35,4 @@
       with_items:
       - .gitconfig
       - .vimrc
+      - .bashrc
